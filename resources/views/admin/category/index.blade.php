@@ -1,4 +1,4 @@
-@extends('admin.layouts.app');
+@extends('admin.layouts.app')
 
 @section('content')
     <h1 class="text-center">Categories</h1>
@@ -18,7 +18,7 @@
     </tr>
   </thead>
   <tbody>
-    @foreach ($categories as $item) :
+    @foreach ($categories as $item)
       <tr>
         <td>{{$item->id}}</td>
         <td>{{$item->name}}</td>
@@ -27,7 +27,7 @@
           <div class="d-flex justify-content-end">
             <a href="{{route('category.edit', ['category'=>$item->id])}}" class="btn btn-warning me-2">Edit</a>
 
-            {!! Form::open(['route'=>['category.destroy', $item->id], 'method'=>'delete']) !!}
+            {!! Form::open([ 'route'=>['category.destroy', $item->id], 'method'=>'delete' ]) !!}
               <button class="btn btn-danger">Delete</button>
             {!! Form::close() !!}
           </div>

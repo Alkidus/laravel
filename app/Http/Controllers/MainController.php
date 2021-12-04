@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class MainController extends Controller
@@ -22,5 +23,18 @@ class MainController extends Controller
             'email' => 'required|email',
         ]);
         return $request->all();
+    }
+
+    function category($id)
+    {
+        $category = Category::find($id);
+        $posts = Post::where('category_id', '=', $id)->paginate(3);
+        return view('category', compact('category', 'posts'));
+    }
+
+    function post($id)
+    {
+        $post = Post::find($id);
+        return view('post', compact('post'));
     }
 }

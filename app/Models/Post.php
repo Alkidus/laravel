@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Str;
 
 class Post extends Model
 {
@@ -21,5 +22,10 @@ class Post extends Model
     public function getImgAttribute($value)
     {
         return $value ? $value : asset('images/no_image.jpg');
+    }
+
+    public function getShortDescriptionAttribute()
+    {
+        return Str::words($this->description, '5', ' ...');
     }
 }

@@ -48,11 +48,11 @@ class PostController extends Controller
 
         $post = new Post();
 
-        $file = $request->img;
-        if ($file) {
-            $path = $file->store('uploads');
-            $post->img = $path;
-        }
+        // $file = $request->img;
+        // if ($file) {
+        //     $path = $file->store('uploads');
+        //     $post->img = $path;
+        // }
 
 
         $post->name = $request->name;

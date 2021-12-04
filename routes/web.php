@@ -20,6 +20,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [MainController::class, 'index'])->name('home');
 Route::post('/get-form', [MainController::class, 'getForm']);
+Route::get('category/{id}', [MainController::class, 'category'])->name('categoryFront');
+Route::get('post/{id}', [MainController::class, 'post'])->name('postFront');
 
 Auth::routes();
 
